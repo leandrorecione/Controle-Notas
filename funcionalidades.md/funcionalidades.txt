@@ -1,0 +1,24 @@
+# Funcionalidades do Projeto - Controle de Notas Escolares
+
+Este projeto permite que o usuário controle notas de quatro bimestres, calcule a média e verifique se o aluno está aprovado ou reprovado.
+
+## 1. Entrada de Notas
+- O usuário insere as notas de **quatro bimestres** via console.
+- As notas devem ser números entre **0 e 10**.
+- O programa valida automaticamente a entrada e pede novamente caso seja inválida.
+
+## 2. Cálculo da Média
+- A média é calculada automaticamente com base nas quatro notas:
+
+
+## 3. Verificação de Situação
+- **Média >= 6** → Aluno aprovado ✅
+- **Média < 6** → Aluno reprovado ❌
+
+## 4. Saída
+- Exibe todas as notas inseridas.
+- Mostra a média calculada.
+- Indica a situação final do aluno (Aprovado ou Reprovado).
+
+## 5. Interação
+- Todo o processo acontece via **console**, tornando a aplicação simples e direta.

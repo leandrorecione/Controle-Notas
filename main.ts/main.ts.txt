@@ -1,0 +1,50 @@
+import readline from "readline";
+
+// Configuração do console para interação
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+const notas: number[] = [];
+
+// Função para perguntar cada nota
+function perguntarNota(bimestre: number): Promise<void> {
+  return new Promise((resolve) => {
+    rl.question(`Digite a nota do ${bimestre}º bimestre: `, (input) => {
+      const nota = parseFloat(input);
+      if (isNaN(nota) || nota < 0 || nota > 10) {
+        console.log("Nota inválida! Digite um número entre 0 e 10.");
+        resolve(perguntarNota(bimestre));
+      } else {
+        notas.push(nota);
+        resolve();
+      }
+    });
+  });
+}
+
+// Função principal
+async function main() {
+  console.log("=== Controle de Notas Escolares ===");
+
+  for (let i = 1; i <= 4; i++) {
+    await perguntarNota(i);
+  }
+
+  const media = notas.reduce((acc, n) => acc + n, 0) / notas.length;
+
+  console.log("\nNotas:", notas.join(", "));
+  console.log("Média:", media.toFixed(2));
+
+  if (media >= 6) {
+    console.log("Situação: APROVADO ✅");
+  } else {
+    console.log("Situação: REPROVADO ❌");
+  }
+
+  rl.close();
+}
+
+// Executa o programa
+main();
